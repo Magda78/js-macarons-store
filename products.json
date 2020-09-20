@@ -1,0 +1,116 @@
+{
+	"items": [
+		{
+			"sys": { "id": "1" },
+			"fields": {
+				"title": "MACARONS SET 1",
+				"price": 10.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "images/mac1.jpg"
+						}
+					}
+				}
+			}
+		},
+		{
+			"sys": { "id": "2" },
+			"fields": {
+				"title": "MACARONS SET 2",
+				"price": 12.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "./images/mac1.jpg"
+						}
+					}
+				}
+			}
+		},
+		{
+			"sys": { "id": "3" },
+			"fields": {
+				"title": "MACARONS SET 3",
+				"price": 12.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "./images/mac1.jpg"
+						}
+					}
+				}
+			}
+		},
+		{
+			"sys": { "id": "4" },
+			"fields": {
+				"title": "MACARONS SET 4",
+				"price": 22.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "./images/mac1.jpg"
+						}
+					}
+				}
+			}
+		},
+		{
+			"sys": { "id": "5" },
+			"fields": {
+				"title": "MACARONS SET 5",
+				"price": 8.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "./images/mac1.jpg"
+						}
+					}
+				}
+			}
+		},
+		{
+			"sys": { "id": "6" },
+			"fields": {
+				"title": "MACARONS SET 6",
+				"price": 3.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "./images/mac1.jpg"
+						}
+					}
+				}
+			}
+		},
+		{
+			"sys": { "id": "7" },
+			"fields": {
+				"title": "MACARONS SET 7",
+				"price": 5.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "./images/mac1.jpg"
+						}
+					}
+				}
+			}
+		},
+		{
+			"sys": { "id": "8" },
+			"fields": {
+				"title": "MACARONS SET 8",
+				"price": 8.99,
+				"image": {
+					"fields": {
+						"file": {
+							"url": "./images/mac1.jpg"
+						}
+					}
+				}
+			}
+		}
+	]
+}

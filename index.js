@@ -7,11 +7,12 @@ const clearBtn = document.querySelector('.clear-btn');
 const cartTotal = document.querySelector('.cart-total-display');
 const cartTotalBtn = document.querySelector('.cart-total-btn');
 const page = document.querySelector('.page-container');
+const backDroop = document.getElementById('backdroop');
 
 let products;
 const cartItemArray = [];
 sum = 0;
-const addBtn = articleContainer.getElementsByClassName('item-btn');
+//const addBtn = articleContainer.getElementsByClassName('item-btn');
 
 async function getData() {
 	const res = await fetch('./products.json');
@@ -25,6 +26,7 @@ async function getData() {
 		return { title, price, id, image };
 	});
 	products.forEach((item) => {
+		console.log(item.id);
 		const div = document.createElement('div');
 		div.className = 'product-list';
 		div.innerHTML = `
@@ -43,29 +45,31 @@ async function getData() {
 	return products;
 }
 
+const backdroop = () => {
+	backDroop.classList.toggle('visible');
+};
+
+toggleBackdroop = () => {
+	closeCart();
+};
+
 openCart = (e) => {
 	cartWindow.style.display = 'block';
-	for (let i = 0; i < addBtn.length; i++) {
-		addBtn[i].disabled = true;
-	}
-	page.style.opacity = '0.5';
+	backdroop();
 };
 
 closeCart = () => {
 	cartWindow.style.display = 'none';
-	for (let i = 0; i < addBtn.length; i++) {
-		addBtn[i].disabled = false;
-	}
-	page.style.opacity = '1';
+	backdroop();
 };
 
-itemClick = (e) => {
+itemClick = (e, idx) => {
 	if (e.target.className === 'item-btn' && e.target.textContent != 'In the cart') {
 		e.target.textContent = 'In the cart';
-		//console.log(e.target.parentElement);
+
+		console.log();
+
 		cartWindow.style.display = 'block';
-		//cartWindow.style.transform = 'translateX(0)';
-		page.style.opacity = '0.5';
 
 		const detailsParentEl = e.target.parentElement.parentElement;
 		const title = detailsParentEl.getElementsByTagName('div')[1].querySelector('h3').innerHTML;
@@ -124,6 +128,8 @@ itemClick = (e) => {
 				sum = sum - itemPrice;
 				buttonDown.disabled = true;
 				e.target.parentElement.parentElement.remove();
+				const btn = document.getElementById('item-btn');
+				btn.textContent = 'Add to cart';
 				e.target.textContent = 'sss';
 			} else {
 				sum = sum - itemPrice;
@@ -145,6 +151,7 @@ itemClick = (e) => {
 removeItem = (e) => {
 	if (e.target.className === 'remove-btn') {
 		e.target.parentElement.parentElement.remove();
+
 		const removeItemPrice = e.target.parentElement.parentElement
 			.getElementsByTagName('div')[1]
 			.querySelector('.item-price').innerText;
@@ -153,9 +160,11 @@ removeItem = (e) => {
 			.querySelector('.amount').innerText;
 		const removeItemValue = removeItemPrice * itemQuantity;
 		console.log(removeItemValue);
-
+		const btn = document.getElementById('item-btn');
+		btn.textContent = 'Add to cart';
 		sum = sum - removeItemValue;
 		cartTotal.innerText = `${sum.toFixed(2)}`;
+		console.log(e.target.parentElement);
 	}
 
 	e.preventDefault();
@@ -163,6 +172,8 @@ removeItem = (e) => {
 
 clearCart = (e) => {
 	e.target.parentElement.parentElement.getElementsByTagName('div')[2].remove();
+	const btn = document.getElementById('item-btn');
+	btn.textContent = 'Add to cart';
 	cartTotal.innerText = '$0.00';
 	clearBtn.disabled = true;
 };
@@ -173,3 +184,4 @@ cartClose.addEventListener('click', closeCart);
 articleContainer.addEventListener('click', itemClick);
 cartItems.addEventListener('click', removeItem);
 clearBtn.addEventListener('click', clearCart);
+backDroop.addEventListener('click', toggleBackdroop);

@@ -7,7 +7,7 @@ const clearBtn = document.querySelector('.clear-btn');
 const cartTotal = document.querySelector('.cart-total-display');
 const cartTotalBtn = document.querySelector('.cart-total-btn');
 const page = document.querySelector('.page-container');
-const backDroop = document.getElementById('backdroop');
+const backDrop = document.getElementById('backdrop');
 
 let products;
 const cartItemArray = [];
@@ -45,23 +45,23 @@ async function getData() {
 	return products;
 }
 
-const backdroop = () => {
-	backDroop.classList.toggle('visible');
+const backdrop = () => {
+	backDrop.classList.toggle('visible');
 };
 
-toggleBackdroop = () => {
+toggleBackdrop = () => {
+	backdrop();
 	closeCart();
 };
 
 openCart = (e) => {
 	cartWindow.style.display = 'block';
-	backdroop();
+	backDrop.classList.add('visible');
 };
 
 closeCart = () => {
 	cartWindow.style.display = 'none';
-	backdroop.className.remove('visible');
-	//backdroop();
+	backDrop.classList.remove('visible');
 };
 
 itemClick = (e, idx) => {
@@ -185,4 +185,4 @@ cartClose.addEventListener('click', closeCart);
 articleContainer.addEventListener('click', itemClick);
 cartItems.addEventListener('click', removeItem);
 clearBtn.addEventListener('click', clearCart);
-backDroop.addEventListener('click', toggleBackdroop);
+backDrop.addEventListener('click', toggleBackdrop);

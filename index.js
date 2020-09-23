@@ -60,7 +60,8 @@ openCart = (e) => {
 
 closeCart = () => {
 	cartWindow.style.display = 'none';
-	backdroop();
+	backdroop.className.remove('visible');
+	//backdroop();
 };
 
 itemClick = (e, idx) => {
